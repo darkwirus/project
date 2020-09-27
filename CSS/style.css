@@ -121,8 +121,8 @@ section.services .services-list {
 	justify-content: space-between;
 }
 section.services .services-list .services-item {
-	height: 250px;
-	width: 250px;
+	height: 260px;
+	width: 240px;
 }
 section.services .services-list .services-item .img {
 	height: 150px;
