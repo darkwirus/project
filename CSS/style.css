@@ -14,7 +14,7 @@ body {
 	justify-content: space-between;
 	min-height: 150px;
 }
-header {
+.wrapper header {
 	background-color: #87509c;
 }
 .header-nav {
@@ -81,7 +81,7 @@ div.bottom-line .button:active {
 	border: none;
 	transition: all 300ms ease-in-out;
 }
-section.services {
+.wrapper section.services {
 	background-color: #17c2a4;
 	padding: 120px 0;
 	text-align: center;
@@ -147,7 +147,7 @@ section.services .services-list .services-item .item-description {
 	line-height: 24px;
 	letter-spacing: 0.32px;
 }
-section.contact {
+.wrapper section.contact {
 	background-color: #3c5499;
 	padding: 120px 0;
 	text-align: center;
