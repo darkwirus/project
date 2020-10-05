@@ -1391,7 +1391,7 @@ function adaptive_function() {
 	adaptive_header(w, h);
 }
 adaptive_function();;
-function map(n) {
+function initMap(n) {
 	google.maps.Map.prototype.setCenterWithOffset = function (latlng, offsetX, offsetY) {
 		var map = this;
 		var ov = new google.maps.OverlayView();
@@ -1411,10 +1411,7 @@ function map(n) {
 		//pixelOffset: new google.maps.Size(-230,250)
 	});
 	var locations = [
-		[new google.maps.LatLng(53.819055, 27.8813694)],
-		[new google.maps.LatLng(53.700055, 27.5513694)],
-		[new google.maps.LatLng(53.809055, 27.5813694)],
-		[new google.maps.LatLng(53.859055, 27.5013694)],
+		[new google.maps.LatLng(56.9634864, 60.6936887)],
 	]
 	var options = {
 		zoom: 10,
@@ -1425,7 +1422,8 @@ function map(n) {
 		scrollwheel: false,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map(document.getElementById('map'), options);
+	var map = new google.maps.Map(document.getElementById("map"), options);
+
 	var icon = {
 		url: 'img/icons/map.svg',
 		scaledSize: new google.maps.Size(18, 20),
@@ -1454,7 +1452,13 @@ function map(n) {
 		})(marker, i));
 		markers.push(marker);
 	}
-
+	infoWindow = new google.maps.InfoWindow();
+	(new google.maps.Marker({
+		position: { lat: 56.96511974795853, lng: 60.69533973604468 },
+		map: map,
+		icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAADxElEQVRoQ91ZTUhUURS+582kKJUz8yZpkfZn0bZVqFA6b0axoja5aJFRmYWbgnAXEtJOgtqImRRFEOGqCGR+naSSVrUrQvqxIjDnxxJF7b3bueMPOjrz7n3vjYy+zfDePfc73/35zrnnDpB1+MA65Ew2FmlKCEw0NLhn1Ol9oEm7qKR9nfw79a5saGhKZHW+V1YWFW8pOjiHQX8X2Areb+7vH8PZQhfGnhUzHfd6S4hE2iillxFSToNVAcgL+EevOCORb9lcJjyendQOdyglx9HOlmYbA4BuopFOVyg0Lkp9GekxRfGCRO4jSJkO0CShcBUd9qbPGFshHHgzAXobMYp1cEYRp0kOhfwixBdJx+o8VQjwfJXZzYSnIcFO2eFqh76+GWZEGxsLYsl4B4K24avESSSGAzwhByJvOO3nhJhUlD2aBH5KaAVvx3k7DQh0OR3Oa+w9kUzcQoxWAcIpGMQYljRa7wiHP/P4B7acMZ+3C0hqDxt5NEJpx5x3aBclvOCQEuiWg6FWHoHCaH1NhU2zDWDnHUYYW9jnhyqptaX+6LAeJozVKWdxupn4ePegHqbRdo0COe8OhB/qAUDMq9zFTdWiZ7gm7ZT0yKHwJT1fuJ+Vl2h0WM9wjdoH1Vn1WGk0OpHNH5L2fEAFHVgjUjpu6MdZsB/ZHgiM6pBWWGYrzw/SZISqtModifzckKRZQN+dJzP9RZPs1dv8/l96e/oV7unq/CBNXxN74VG5v/9PdtJ5FPIwOz92B8Nn9CYQYnXKKTzZPs2D5MKOARfkQIgluqzP+kzjqfOvT+nBoTXrjTDH7b2uYLiF68DEiIzV1R4CKrGDeEmOiWWCH6eg1bsDA295/KfO0xYcT3l8ZbQROZYykMXKBUukcgo0iN/2m2Ig3vkTUPBh6TbC23VZjRj3eU5rBB7gx0JeADN2uMLTEqHnXMHIExGcZaTnRXkdAW6sQQjUmB8U300e8S0d1IorBFacJsbj97D0bxIZvagtXkU8cpa4Li4UxSL9V71hStTUOLRNtmcIlKtz9qA0q550RqNJEbILthmvxUxU6Fl5iFbeq4FlvcszcBeiN3HCdxzCpFkHqyKK0UhhiLRFEcVwpDBEOpUxzUcUU8JLJ859P200olghPMOkWcekx7NXtQFL9bzlmSXCM0VaRJhWCs80aU5hWio806R5hGkmResFetbOLcR0sCzCtDRSGA55mUafnupzESksJ80Al6R6XDexvyF4tkJOSKeINzRsZb96lyxGSVoiRKucG8UxLESjDq3o9x9SoJY9SovmtgAAAABJRU5ErkJggg==",
+		title: decodeURIComponent("%D0%9A%D0%BE%D0%B7%D0%BB%D0%B8%D0%BA%D0%B8")
+	}))
 	if (n) {
 		var nc = n - 1;
 		setTimeout(function () {
@@ -1462,6 +1466,34 @@ function map(n) {
 		}, 500);
 	}
 }
+
+// function initMap() {
+// 	const map = new google.maps.Map(document.getElementById("map"), {
+// 		zoom: 8,
+// 		center: { lat: -34.397, lng: 150.644 },
+// 	});
+// 	const geocoder = new google.maps.Geocoder();
+// 	document.getElementById("submit").addEventListener("click", () => {
+// 		geocodeAddress(geocoder, map);
+// 	});
+// }
+
+// function geocodeAddress(geocoder, resultsMap) {
+// 	const address = document.getElementById("address").value;
+// 	geocoder.geocode({ address: address }, (results, status) => {
+// 		if (status === "OK") {
+// 			resultsMap.setCenter(results[0].geometry.location);
+// 			new google.maps.Marker({
+// 				map: resultsMap,
+// 				position: results[0].geometry.location,
+// 			});
+// 		} else {
+// 			alert(
+// 				"Geocode was not successful for the following reason: " + status
+// 			);
+// 		}
+// 	});
+// }
 
 //map(1);
 
