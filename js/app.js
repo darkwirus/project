@@ -1414,7 +1414,7 @@ function initMap(n) {
 		[new google.maps.LatLng(56.9634864, 60.6936887)],
 	]
 	var options = {
-		zoom: 10,
+		zoom: 13,
 		panControl: false,
 		mapTypeControl: false,
 		center: locations[0][0],
